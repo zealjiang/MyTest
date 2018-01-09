@@ -39,6 +39,7 @@ public class MEquals {
 	public void nullToEmpty(){
 		System.out.println(empty(null));
 		System.out.println("nullToEmpty");
+		System.out.println("nullToEmpty".equals(null));
 	}
 	
     public static String empty(@Nullable String str) {
