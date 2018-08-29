@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.junit.Test;
+
 public class ParseTime {
 
 	public static void main(String[] args) {
@@ -18,13 +20,21 @@ public class ParseTime {
 		 * parseTime2(str_time); System.out.println("time :"+time);
 		 */
 
-		/*
-		 * //测试三 String myString = "20111110152704"; String time =
-		 * parseTime3(myString); System.out.println("time :"+time);
-		 */
-
+		 //测试三 
+/*		 String myString = "20111110152704"; 
+		 String time =parseTime3(myString);
+		 System.out.println("time :"+time);*/
+		 
+/*		 parseTime4();
+		 
+		 String toDay = getToday();
+		 System.out.println("time :"+toDay);*/
+		 
 		// 测试四
-		dateToString("2013-9-1");
+		//dateToString("2013-9-1");
+		 
+		 
+		 //dateToString();
 
 	}
 
@@ -75,6 +85,60 @@ public class ParseTime {
 		}
 		return r_data;
 	}
+	
+	@Test
+	public void dateToMillisec() {
+		String sDate = "3050年01月01日";
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+		String r_data = "";
+		try {
+			Date d = sdf.parse(sDate);
+			long time = d.getTime();
+			System.out.println("time :"+time);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+	
+	@Test
+	public void millisecToDate() {
+
+		String r_data = "";
+		try {
+			long time = System.currentTimeMillis();
+			System.out.println("time :"+time);
+			time = 1521475200000l;
+			time = 968930610743l;
+			time = 1860666930666l;
+			time = 1522857600000l;
+			Date date = new Date(time);
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+			r_data = sdf.format(date);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("time :"+r_data);
+	}
+	
+	public static String getToday() {
+
+		String r_data = "";
+		try {
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日");
+			r_data = sdf.format(date);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return r_data;
+	}
+
 
 	/**
 	 * Date转String
@@ -130,5 +194,26 @@ public class ParseTime {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sDate = sdf.format(date);
 		return sDate;
+	}
+	
+	/**
+	 * 日期转System.currentTimeMillis
+	 * @return
+	 */
+	@Test
+	public void dateToString(){
+		Date date = new Date();
+		long time = date.getTime();
+		System.out.println("time-->" + time);
+		System.out.println("time-->" + System.currentTimeMillis());
+		
+		SimpleDateFormat formatDate = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			Date date2018 = formatDate.parse("2018-03-20");
+			System.out.println("date2018-->" + date2018.getTime());
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

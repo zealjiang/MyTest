@@ -60,4 +60,35 @@ public class JsonParserTest {
 		}
 		
 	}
+	
+	private void jsonToMap(){
+        String test = "{HUE=0.0, SATURATION=-40.0, EXPOSURE=80.0, FADE=50.0, SHADOW=0.0, VIGNETTE=30.0, BRIGHTNESS=0.0, HIGHLIGHT=30.0, VIBRANCE=0.0, PRISM=30.0, TEMPERATURE=0.0, OFFSET=0.0, CONTRAST=40.0, TINT=40.0}";
+
+        String newStr = test.substring(1,test.length()-1);
+        String[] array = newStr.split(",");
+        for (int i = 0; i < array.length; i++) {
+			array[i].split("");
+		}
+    }
+	
+	public enum QhLayerAdjust {
+	    BRIGHTNESS,
+	    CONTRAST,
+	    EXPOSURE,
+	    OFFSET,
+	    TEMPERATURE,
+	    TINT,
+	    SATURATION,
+	    HUE,
+	    VIBRANCE,
+	    VIGNETTE,
+	    PRISM,
+	    FADE,
+	    HIGHLIGHT,
+	    SHADOW,
+	    LAYER_ADJUST_MAX;
+
+	    private QhLayerAdjust() {
+	    }
+	}
 }

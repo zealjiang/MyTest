@@ -104,4 +104,16 @@ public class StringSplit {
    	 	String[] slonlatArray = slonlat.split(",");
    	 	System.out.println(slonlatArray);
 	}
+	
+	@Test
+	public void sliptStrings(){
+		System.out.println("==========");
+		String slonlat = "fior_pri__oftX_nil__oftY_nil__stor_nil__stth_nilfior_sha__oftX_nil__oftY_nil__stor_sha__stth_2fior_hig__oftX_3__oftY_3__stor_nil__stth_nilfior_sha__oftX_3__oftY_3__stor_sha__stth_2*-*/sdcard/aa.ttf*-*";
+   	 	slonlat = "1*-*2*-*3";
+		String[] slonlatArray = slonlat.split("\\*-\\*");
+   	 	for (int i = 0; i < slonlatArray.length; i++) {
+   	   	 	System.out.println(i+" : "+slonlatArray[i]);
+		}
+
+	}
 }
